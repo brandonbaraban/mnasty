@@ -4,18 +4,20 @@ import tensorflow as tf
 
 
 def main():
-    x_train, y_train, x_test, y_test = load_data()
+    x_train, y_train, x_test, y_test = load_data(normalize=True)
     model = get_model()
     model.fit(x_train, y_train, epochs=5)
     model.evaluate(x_test, y_test)
 
 
-def load_data():
+def load_data(normalize=False):
     mnist = tf.keras.datasets.mnist
 
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
-    x_train, x_test = x_train / 255.0, x_test / 255.0
-    print(x_train.shape)
+    if normalize:
+        x_train, x_test = x_train / 255.0, x_test / 255.0
+    if pca:
+        pass # TODO: implement
     return x_train, y_train, x_test, y_test
 
 
