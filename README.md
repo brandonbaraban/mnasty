@@ -1,2 +1,2 @@
 # mnasty
-mnasty: simple input dimensionality reduction for mnist training
+mnasty: simple input dimensionality reduction on mnist dataset
